@@ -1,0 +1,278 @@
+.empty {
+    margin-top: 5vh;
+}
+
+.header {
+    font-weight: bold;
+    background-color: #E5EBD7;
+    display: grid;
+    text-align: center;
+    overflow: hidden;
+    height: 50vh;
+}
+
+.header-main {
+    text-transform: uppercase;
+    font-size: 3.5vh;
+    margin-top: 22vh;
+}
+
+.header-second {
+    font-size: 1.5vh;
+    margin-top: 5vh;
+}
+
+.header-third {
+    font-size: 1.5vh;
+    margin-top: 1.5vh;
+}
+
+footer {
+    text-align: right;
+}
+
+.form-control {
+    border-color: darkgrey;
+}
+
+.form-control:hover {
+    border-color: #9A7F70;
+}
+
+.form-control:focus {
+    border-color: #9A7F70;
+    box-shadow: 0 0 5px #9A7F70;
+}
+
+.btn-custom {
+    color: black;
+    background-color: white;
+    border-color: darkgrey;
+}
+
+.btn-custom:hover, .btn-custom-highlight:hover  {
+    color: white;
+    background-color: #9A7F70;
+    border-color: #9A7F70;
+    box-shadow: 0 0 5px #9A7F70;
+    transform: scale(1.06);
+}
+
+.btn-custom:focus, .btn-custom-highlight:focus {
+    background-color: #9A7F70;
+}
+
+.btn-custom-highlight  {
+    color: black;
+    background-color: #E5EBD7;
+    border-color: #E5EBD7;
+}
+
+.edit-button {
+    text-align: right;
+    margin-top: -2vh;
+    margin-bottom: 2vh;
+}
+
+.add-button {
+    margin-top: -2vh;
+}
+
+#discard-data {
+    margin-left: 5vh;
+}
+
+.container {
+    display: grid;
+    margin: auto;
+    width: 100%; 
+    overflow: hidden;
+    padding-bottom: 4vh;
+    padding-top: 4vh;
+}
+
+.header-image {
+    display: flex;    
+    align-items: stretch; 
+    object-fit: cover;
+    margin: 0 auto; 
+}
+
+.row {
+    display: flex; 
+    align-items: stretch; 
+    margin: 0; /* Remove default margin */
+}
+
+.home-card {
+    border: 6px solid #E5EBD7;
+    border-radius: 8px;
+    overflow: hidden; 
+    position: relative;
+    max-width: 100%;
+    display: flex;      
+    flex-direction: column;             
+    align-items: center; 
+    padding-top: 1vh;
+}
+
+.home-card:hover {
+    box-shadow: 0 0 10px #E5EBD7;
+    transform: scale(1.05);
+}
+
+.link {
+    color: black;
+    text-decoration: none; 
+}
+
+.link:hover {
+    color: #9A7F70;
+    text-decoration: underline;
+    text-decoration-color:  #9A7F70;
+    text-decoration-thickness: 0.2vh;
+    text-decoration-skip-ink: none;
+}
+
+.content {
+    padding-top: 3%;
+    text-align: justify;
+}
+
+.section {
+    padding-bottom: 3vh;
+    text-align: left;
+}
+
+.text-minor {
+    font-size: 1.6vh;
+    color: darkgray;
+}
+
+.text-medium {
+    font-size: 1.6vh;
+}
+
+.text-header {
+    text-transform: capitalize;
+}
+
+.text-header-view {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: darkgray;
+}
+
+.text-header-add {
+    padding: 3vh;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: lightgrey;
+    font-size: 2.5vh;
+}
+
+.text-highlight {
+    background-color: #E5EBD7;
+    font-weight: bold;
+}
+
+.text-descriptive {
+    font-style: italic;
+}
+
+.text-value {
+    text-transform: capitalize;
+}
+.text-key {
+    text-transform: capitalize;
+    font-size: 1.3vh;
+}
+
+.box-effect {
+    position: relative; 
+    padding: 1vh 2vh; 
+    margin-top: 2vh;
+    margin-left: -1vh;
+}
+
+.box-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0; 
+    width: 0.3vh; 
+    height: 0; 
+    background-color:#9A7F70;
+}
+
+.box-effect:hover::before {
+    height: 100%; 
+}
+
+#map {
+    height: 100%; 
+    width: 68%; 
+}
+
+.map-container {
+    overflow-y: auto; /* Enable vertical scrolling */
+    height: 400px;
+    padding-left: 1%;
+}
+
+.add-basic, .add-more {
+    margin-bottom: 6vh;
+    border: 0.1vh solid lightgrey;
+}
+
+.add-basic .row, .add-more .row {
+   padding-bottom: 2vh;
+}
+
+.add-form {
+    margin-bottom: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.add-form label {
+    font-weight: bold;
+    padding-bottom: 0.3vh;
+    display: block;
+}
+
+.add-form input, .add-form select, .add-form textarea { 
+    width: 100%;
+    padding: 1vh;
+    border: 0.1vh solid #ccc;
+    border-radius: 0.8vh;
+}
+
+.add-form input:hover, .add-form select:hover, .add-form textarea:hover{ 
+    border-color: #9A7F70;
+    box-shadow: 0 0 5px #9A7F70;
+}
+
+.add-form input:focus, .add-form select:focus, .add-form textarea:focus {
+    outline: none;
+    border-color: #9A7F70; 
+    box-shadow: 0 0 5px #9A7F70; 
+}
+
+.warning {
+    color: #9A7F70; 
+    display: inline;
+    font-weight: normal;
+}
+
+.word-count {
+    color: lightgray;
+}
+
+.add-status {
+    margin-bottom: 3vh;
+    margin-top: -3vh;
+    font-size: 20px;
+    color: darkgray;
+    font-weight: bold;
+}

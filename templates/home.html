@@ -1,0 +1,61 @@
+{% extends "base_layout.html" %}
+
+
+{% block header %}
+<div class = "header">
+    <div class = "row">
+        <div class = "col-8">
+            <h1 class = "header-main">
+                Welcome to Central Park Blooms
+            </h1>
+            <h2 class = "header-second"> 
+                Experience the ever-changing beauty of Central Park
+            </h2>
+            <h3 class = "header-third"> 
+                An immersive escape into nature's masterpiece 
+            </h3>
+        </div>
+        <div class = "col-4 header-image">
+            <img src = "https://images.squarespace-cdn.com/content/v1/61e584312b2d1f5351cd4478/333a7538-f381-4b04-bb96-e9a7cbb30916/MAll2_8915.jpeg" class = "img-fluid" alt = "central park" title = "central park">
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block content %}
+<script type = "text/javascript" src = "{{ url_for('static', filename = 'home.js') }}"></script>
+
+<script>
+    let data = {{data|tojson}};
+</script>
+
+<div class = "container">
+    <div class = "content">
+        <div class = "row">
+            <div class = "col-12 col-md-4 home-card" id = "image-1">
+            </div>
+            <div class = "col-12 col-md-4">
+            </div>
+            <div class = "col-12 col-md-4 home-card" id = "image-2">
+            </div>
+        </div>
+        <div class = "row">
+            <div class = "col-12 col-md-4">
+            </div>
+            <div class = "col-12 col-md-4 home-card" id = "image-3">
+            </div>
+            <div class = "col-12 col-md-4">
+            </div>
+        </div>
+        <div class = "row">
+            <div class = "col-12 col-md-4 home-card" id = "image-4">
+            </div>
+            <div class = "col-12 col-md-4">
+            </div>
+            <div class = "col-12 col-md-4 home-card" id = "image-5">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

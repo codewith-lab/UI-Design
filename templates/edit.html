@@ -1,0 +1,41 @@
+{% extends "form_layout.html" %}
+
+{% block header %}
+
+<div class = "header"> 
+    <h1 class = "header-main">Edit "{{detail.name}}"</h1> 
+</div>
+
+{% endblock %}
+
+{% block other %}
+
+<script type = "module" src = "{{ url_for('static', filename = 'edit.js') }}"></script>
+
+<script>
+    let detail = {{detail|tojson}};
+</script>
+
+<div class = "add-button">
+    <button type = "submit" class = "btn btn-custom-highlight" id = "edit-data">Submit</button>
+    <button type = "submit" class = "btn btn-custom" id = "discard-data">Discard</button>
+</div>
+
+<div class = "modal fade" id = "redirectModal" tabindex = "-1" aria-labelledby = "redirectModalLabel" aria-modal = "false">
+    <div class = "modal-dialog">
+        <div class = "modal-content">
+            <div class = "modal-header">
+                <div class = "modal-title text-header-view dialog-status" id = "redirectModalLabel"></div>
+                <button type = "button" class = "btn-close" data-bs-dismiss = "modal" aria-label = "Close"></button>
+            </div>
+            <div class = "modal-body dialog-message">
+                <span id = "countdown"></span>
+            </div>
+            <div class = "modal-footer">
+                <button type = "button" class = "btn btn-custom dialog-btn-l" data-bs-dismiss = "modal"></button>
+                <button type = "button" class = "btn btn-custom dialog-btn-r" data-bs-dismiss = "modal"></button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

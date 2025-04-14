@@ -1,0 +1,140 @@
+{% extends "base_layout.html" %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+
+<div class = "container">
+    <div class = "content">
+        <div class = "add-status"></div>
+        <div class = "add-basic">
+            <div class = "text-header-add">Basics</div>
+            <div class = "add-form">
+                <label for = "name">Name</label>
+                <input type = "text" id = "name" name = "name" placeholder = "Bloom Name" required>
+            </div>
+    
+            <div class = "row">
+                <div class = "col-md-6">
+                    <div class = "add-form">
+                        <label for = "season">Seasons</label>
+                        <select id = "season" name = "season" multiple required>
+                            <option value = "January">January</option>
+                            <option value = "February">February</option>
+                            <option value = "March">March</option>
+                            <option value = "April">April</option>
+                            <option value = "May">May</option>
+                            <option value = "June">June</option>
+                            <option value = "July">July</option>
+                            <option value = "August">August</option>
+                            <option value = "September">September</option>
+                            <option value = "October">October</option>
+                            <option value = "November">November</option>
+                            <option value = "December">December</option>
+                        </select>
+                    </div>
+                </div>
+                <div class = "col-md-6">
+                    <div class = "add-form">
+                        <label for = "location">Locations</label> 
+                        <select id = "location" name = "location" multiple required>
+                            <option value = "Shakespeare Garden">Shakespeare Garden</option>
+                            <option value = "Conservatory Garden">Conservatory Garden</option>
+                            <option value = "North Woods">North Woods</option>
+                            <option value = "The Ramble">The Ramble</option>
+                            <option value = "Reservoir">Reservoir</option>
+                            <option value = "Hallett Nature Sanctuary">Hallett Nature Sanctuary</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class = "add-form">
+                <label for = "description">Description</label> 
+                <textarea id = "description" name = "description" placeholder = "A Brief Description" required></textarea>
+                <div class = "add-word text-minor">Word Count: <span id = "word-count">0</span><br></div>
+            </div>
+            
+            <div class = "add-form">
+                <label for = "image-url">Image URL</label>
+                <input type = "url" id = "image-url" name = "image-url" placeholder = "Image URL" required>
+            </div>
+        </div>
+        
+        <div class = "add-more">
+            <div class = "text-header-add">More Details</div>
+            <div class = "row">
+                <div class = "col-md-4">
+                    <div class = "add-form">
+                        <label for = "size">Size</label>
+                        <input type = "text" id = "size" name = "size" placeholder = "Size" required></input>
+                    </div>
+                </div>
+                <div class = "col-md-4">
+                    <div class = "add-form">
+                        <label for = "fragrance">Fragrance</label>
+                        <input type = "text" id = "fragrance" name = "fragrance" placeholder = "Fragrance" required></input>
+                    </div>
+                </div>
+                <div class = "col-md-4">
+                    <div class = "add-form">
+                        <label for = "color">Color</label>
+                        <input type = "text" id = "color" name = "color" placeholder = "Color" required></input>
+                    </div>
+                </div>
+            </div>
+            
+    
+            <div class = "row">
+                <div class = "col-md-4">
+                    <div class = "add-form">
+                        <label for = "family">Family</label>
+                        <input type = "text" id = "family" name = "family" placeholder = "Family" required></input>
+                    </div>
+                </div>
+                <div class = "col-md-4">
+                    <div class = "add-form">
+                        <label for = "genus">Genus</label>
+                        <input type = "text" id = "genus" name = "genus" placeholder = "Genus" required></input>
+                    </div>
+                </div>
+                <div class = "col-md-4">
+                    <div class = "add-form">
+                        <label for = "species">Species</label>
+                        <input type = "text" id = "species" name = "species" placeholder = "Species" required></input>
+                    </div>
+                </div>
+            </div>
+    
+            <div class = "row">
+                <div class = "col-md-4">
+                    <div class = "add-form">
+                        <label for = "origin">Origin</label>
+                        <input type = "text" id = "origin" name = "origin" placeholder = "Origin" required></input>
+                    </div>
+                </div>
+            </div>
+            
+            <div class = "row">
+                <div class = "col-md-4">
+                    <div class = "add-form">
+                        <label for = "attribute">Attribute</label>
+                        <select id = "attribute" name = "attribute" multiple required>
+                            <option value = "Shrub">Shrub</option>
+                            <option value = "Vine">Vine</option>
+                            <option value = "Evergreen">Evergreen</option>
+                            <option value = "Perennial">Perennial</option>
+                            <option value = "Annual">Annual</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% block other %}
+    {% endblock %}
+    
+</div>
+{% endblock %}

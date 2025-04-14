@@ -1,0 +1,78 @@
+{% extends "base_layout.html" %}
+
+{% block header %}
+<div class = "header"> 
+    <h1 class = "header-main"> Search Results for <span class = "text-highlight">"{{ query }}" </span> </h1> 
+</div>
+{% endblock %}
+
+{% block content %}
+{% macro highlight_text(text, query, max_len, begin_len, display_full = false) %}
+    {% set text_lower = text|lower %}
+    {% if display_full %}
+        {% set max_len = text|length + 1%}
+        {% set begin_len = text|length + 1%}
+    {% endif %}
+
+    {% if query in text_lower %}
+        {% set query_index = text_lower.find(query) %}
+
+        {% set start = max(0, query_index - begin_len) %}
+        {% set mid = min(text|length, query_index + query|length) %}
+        {% set end = min(text|length + 1, start + max_len) %}
+
+        {% set start = max(0, text.rfind(' ', 0, start)) %}
+        {% set end = min(text|length + 1, text.find(' ', end) if text.find(' ', end) != -1 else end) %}
+        
+        {% set display = text[start:query_index] ~ '<span class = "text-highlight">' ~ text[query_index:mid] ~ '</span>' ~text[mid:end] %}
+        {% if start > 0 and not display_full %}...{% endif %} 
+        {{ display| safe }} 
+        {% if not display_full %}...{% endif %}
+    {% else %}
+        {{ text | truncate(max_len) }} 
+        {% if not display_full %}...{% endif %}
+{% endif %}
+
+{% endmacro %}
+
+<script type = "text/javascript" src = "{{ url_for('static', filename = 'search.js') }}"></script>
+
+<script>
+    let query = {{query|tojson}};
+    let results = {{results|tojson}};
+</script>
+
+<div class = "container">
+    <div>
+        <div class = "content">
+            {% if results|length == 0 %}
+                No results found.
+            {% else %}
+            Showing <strong>{{ results|length }}</strong> result(s)
+        </div>
+        {% set max_len = 250 %}
+        {% set begin_len = 50 %}
+        {% for result in results %}
+            {% set name_lower = result.name|lower %}
+            <div class = "content box-effect">
+                <a href = "/view/{{result.id}}" class = "link">
+                    <span class = "text-header">{{ loop.index }}. {{ name_lower|replace(query, '<span class = "text-highlight">'  ~ query ~ '</span>')|safe }}</span>
+                </a>
+                <div>
+                    <span class = "text-minor">Description: </span>
+                    <span class = "text-medium">{{ highlight_text(result.summary, query, max_len, begin_len) }}</span>
+                </div>
+                <div>
+                    <span class = "text-minor">Seasons: </span>
+                    <span class = "text-medium">{{ highlight_text(result.bloom_dates, query, max_len, begin_len, true) }}
+                 </div>
+                 <div>
+                    <span class = "text-minor">Locations: </span>
+                    <span class = "text-medium">{{ highlight_text(result.location, query, max_len, begin_len, true) }}</span>
+                 </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+    </div>
+</div>
+{% endblock %}

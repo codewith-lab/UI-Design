@@ -1,0 +1,110 @@
+{% extends "base_layout.html" %}
+
+{% block header %}
+<div class = "header">
+    <div class = "row">
+        <div class = "col-8">
+            <h1 class = "header-main">{{ detail.name }}</h1>
+        </div>
+        <div class = "col-4 header-image">
+            <img src = "{{detail.image}}" class = "img-fluid" alt = "{{detail.name}}" title = "{{detail.name}}">
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+<script type = "text/javascript" src = "{{ url_for('static', filename = 'view.js') }}"></script>
+
+<script>
+    let detail = {{detail|tojson}};
+    let data = {{data|tojson}};
+    let map_coordinates = {{map_coordinates|tojson}};
+</script>
+
+<div class = "container">
+    <div class = "content">
+        <div class = "edit-button">
+            <button type = "submit" class = "btn btn-custom">Edit Page</button>
+        </div>
+        <div class = "row">
+            <div class = "col-6 col-md-4">
+                    <div class = "text-header-view">Bloom Seasons</div>
+                    <div class = "section">
+                        {% for date in detail["bloom dates"] %}
+                        <div>
+                            <form action = "/search-results" method = "GET">
+                                <input type = "hidden" name = "q" value = "{{ date }}">
+                                <button type = "submit" class = "btn btn-custom">{{ date }}</button>
+                            </form>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class = "text-header-view">Locations</div>
+                    <div class = "section">
+                        {% for location in detail["location"] %}
+                            <div>
+                                <form action = "/search-results" method = "GET" >
+                                    <input type = "hidden" name = "q" value = "{{ location }}">
+                                    <button type = "submit" class = "btn btn-custom">{{ location }}</button>
+                                </form>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class = "text-header-view">Nearby Plants</div>
+                    <div class = "section">
+                        {% if detail["nearby plants"] %}
+                            {% for plant in detail["nearby plants"] %}
+                                <li>
+                                    <a href = "/view/{{ plant }}" class = "link">{{ data[plant].name }}</a>
+                                </li>
+                            {% endfor %}
+                        {% else %}
+                        Not Available
+                        {% endif %}
+                    </div>
+
+                    <div class = "text-header-view">Similar Plants</div>
+                    <div class = "section">
+                        {% if detail["similar plants"] %}
+                            {% for plant in detail["similar plants"] %}
+                                <li>
+                                    <a href = "/view/{{ plant }}" class = "link">{{ data[plant].name }}</a>
+                                </li>
+                            {% endfor %}
+                        {% else %}
+                        Not Available
+                        {% endif %}
+                    </div>
+            </div>
+
+            <div class = "col-6 col-md-8">
+               <div class = "text-descriptive">
+                     {{detail.summary}}
+               </div> 
+               <div class = "section"></div>
+
+               <div class = "text-header-view">Details</div>
+                    <div class = "section">
+                        {% for key, value in detail.items() %}
+                            {% if key in ["origin", "plant size", "fragrance", "color", "attribute", "family", "genus", "species"]%}
+                                {% if value is iterable and value is not string %}
+                                    <li><span class = "text-key" >{{ key }}</span> <span class = "text-value" >{{ value | join(" / ") }} </span></li> 
+                                {% else %}
+                                    <li><span class = "text-key" >{{ key }}</span> <span class = "text-value" >{{ value }} </span></li>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class = "map-container">
+        <div id = "map" aria-label = "central park map" ></div>
+    </div>
+</div>
+{% endblock %}
