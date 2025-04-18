@@ -9,7 +9,7 @@ cd UI-Design
 ###  3. Run the Python server
 python3 server.py
 
-### 4. paste the URL into your browser's address bar
+### 4. Paste the URL into your browser's address bar
 http://127.0.0.1:5002/
 
 
