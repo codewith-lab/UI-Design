@@ -1,10 +1,10 @@
 ## Get Started 
 
 #### 1. Clone the repository
-git clone https://github.com/codewith-lab/UI-Design.git
+git clone https://github.com/codewith-lab/ui-design.git
 
 ####  2. Navigate into the project folder
-cd UI-Design
+cd ui-design
 
 ####  3. Run the Python server
 python3 server.py
